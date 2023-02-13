@@ -2,7 +2,7 @@
 # Name: Hannah Mannering 
 import os
 from pathlib import Path
-directory = '/home/hemannering/DNA_Research/DNA_Research/subset'
+directory = '/home/hemannering/Research/data/subset'
 
 for filename in os.listdir(directory):
     f = os.path.join(directory, filename)
