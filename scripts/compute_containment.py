@@ -6,12 +6,12 @@ from pathlib import Path
 
 # get fasta files
 # write what path you want to look at
-path = '/home/hemannering/DNA_Research/DNA_Research/subset/*.fna.gz'
+path = '/home/hemannering/Research/data/subset/*.fna.gz'
 fasta_files = glob.glob(path)
 
 # get mash files
 # write what path you want to look at 
-path2 = '/home/hemannering/DNA_Research/DNA_Research/subset/*.fna.gz.msh'
+path2 = '/home/hemannering/Research/data/subset/*.fna.gz.msh'
 mash_files = glob.glob(path2)
 
 # iterate through fasta files
