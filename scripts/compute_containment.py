@@ -21,5 +21,5 @@ for filename_fasta in fasta_files:
     for filename_mash in mash_files:
         # check to ensure it is printing mash 
         #print(filename_mash)
-        os.system('./mash screen ' + filename_mash + ' ' + filename_fasta + ' | cut -f1,2 > cont_within_.txt')
+        os.system('./mash screen ' + filename_mash + ' ' + filename_fasta + ' | cut -f1,2 >> cont_within_.txt')
 
