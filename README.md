@@ -11,6 +11,7 @@ Art was used to simulate sequencing depths.
 Ex. ./art_illumina -ss HS25 -sam -i /home/hemannering/DNA_Research/DNA_Research/subset/GCF_019273775.1_ASM1927377v1_genomic.fna -l 100 -f 5 -o j
 
  ## Mixture 
+ - It is important to untar all files w/ gzip -d
  |  Sequence Depth | Genome  |
 |---|---|
 |  0.5    | GCF_019273775.1_ASM1927377v1_genomic.fna  |
