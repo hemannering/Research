@@ -423,13 +423,29 @@ int CommandScreen::run() const
 		for (int j = 0; j < hashes.size(); j++) {
 			uint64_t hash = hashes.get64() ? hashes.at(j).hash64 : hashes.at(j).hash32;
 			abundance_list.push_back(hashCounts[hash]); }
+		// adding *********
+		uint64_t sum = 0;
+		int count = 0; // keep track of the count of nonzero items
 		for (int j = 0; j < abundance_list.size();j++) {
-			std::cout << abundance_list[j] << " ";}
+			//std::cout << abundance_list[j] << " ";}
+			// *** commented out above
+			if (abundance_list[j] > 0) {
+				sum += abundance_list[j];
+				count ++; }
+			}
+			//sum += abundance_list[j]; }
+			double mean = 0;
+			if (count >0 ) {
+				 mean = static_cast<double>(sum) / static_cast<double>(count);
+			}
+		//double mean = static_cast<double>(sum) / static_cast<double>(abundance_list.size());
+		//std::cout <<  mean << endl;
 		 	//cout  << hashCounts[hash] << endl; }	
 
 			//cout  << hashCounts[hash] << endl; }
-
-		if ( shared[i] != 0 || identityMin < 0.0)
+		// CHANGING APRIL 6
+		//if ( shared[i] != 0 || identityMin < 0.0)
+		if ( shared[i] < 0 || shared[i] >= 0 || identityMin < 0.0)
 		{
 			double identity = estimateIdentity(shared[i], sketch.getReference(i).hashesSorted.size(), kmerSize, sketch.getKmerSpace());
 			if ( identity < identityMin )
@@ -443,7 +459,7 @@ int CommandScreen::run() const
 			{
 				continue;
 			}
-			cout << "\t" << identity << '\t' << shared[i] << '/' << sketch.getReference(i).hashesSorted.size() << '\t' << (shared[i] > 0 ? depths[i].at(shared[i] / 2) : 0) << '\t' << pValue << '\t' << sketch.getReference(i).name << '\t' << sketch.getReference(i).comment;	
+			cout << "\t" << mean << "\t" << identity << '\t' << shared[i] << '/' << sketch.getReference(i).hashesSorted.size() << '\t' << (shared[i] > 0 ? depths[i].at(shared[i] / 2) : 0) << '\t' << pValue << '\t' << sketch.getReference(i).name << '\t' << sketch.getReference(i).comment;	
 			if ( sat)	
 			{
 
